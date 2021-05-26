@@ -14,7 +14,7 @@ public class JoinOurTeamTests extends TestBase{
     final String JOB = "Senior Cloud Network Engineer";
 
     @Test
-    @DisplayName("Explore QA career opportunity")
+    @DisplayName("Explore " + JOB +  " career opportunity")
     void QaRole() {
         open("");
         $("#menu-855-1").click();
@@ -23,7 +23,8 @@ public class JoinOurTeamTests extends TestBase{
         $(byText("Select a Location")).click();
         $(byText("All USA")).click();
         $("#jv-search-keyword").setValue(JOB);
-        $$(".jv-job-list jv-search-list").shouldHave(texts("Senior Cloud Network Engineer"));
-
+        $(byText("Search")).click();
+        $$(".jv-job-list.jv-search-list")
+                .shouldHave(texts(JOB));
     }
 }
